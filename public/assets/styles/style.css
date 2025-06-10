@@ -26,6 +26,12 @@
     display: none;
 }
 
+.labelStatus.active{
+    border: 2px solid rgb(42, 42, 252);
+}
+
+
+
 @media (min-width: 1024px){
     .task-details.active{
         width: 700px;

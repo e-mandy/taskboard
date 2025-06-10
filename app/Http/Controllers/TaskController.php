@@ -13,7 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('taskboard');
+        return view('taskboard', ['tasks' => Task::all()]);
     }
 
     /**
@@ -30,7 +30,7 @@ class TaskController extends Controller
     public function store(StoreTaskRequest $request)
     {
         $request = $request->validated();
-        Task::create($request->all());
+        Task::create($request);
         return to_route('task.index');
     }
 

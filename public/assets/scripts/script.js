@@ -2,6 +2,7 @@ let addTask = document.querySelector('.addTasks')
 let taskDetails = document.querySelector('.task-details')
 let overlay = document.querySelector('.overlay')
 let closeDetails = document.querySelector('.close-details')
+let inputStatus = document.querySelectorAll('.status')
 
 console.log('hello')
 
@@ -14,3 +15,17 @@ closeDetails.addEventListener('click', ()=>{
     taskDetails.classList.remove('active')
     overlay.classList.remove('active')
 })
+
+inputStatus.forEach((input) =>{
+    input.addEventListener('change', ()=>{
+        
+        inputStatus.forEach((radio)=>{
+            radio.parentElement.classList.remove('active')
+        })
+
+        if(input.checked){
+            input.parentElement.classList.add('active')
+        }
+    })
+})
+

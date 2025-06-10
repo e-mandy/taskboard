@@ -23,7 +23,8 @@ class StoreTaskRequest extends FormRequest
     {
         return [
             "name" => ['string', 'max:100', 'required'],
-            "description" => ['string', 'max:500', 'nullable']
+            "description" => ['string', 'max:500', 'nullable'],
+            "status" => ['string', 'required']
         ];
     }
 }
