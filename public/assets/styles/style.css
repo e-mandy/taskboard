@@ -1,4 +1,4 @@
-.overlay.active{
+.overlay{
     background-color: black;
     opacity: 0.5;
     width: 100vw;
@@ -9,7 +9,7 @@
     left: 0;
 }
 
-.task-details.active{
+.task-details{
     display: block;
     position: fixed;
     top: 2.5vh;
@@ -22,10 +22,6 @@
     margin: auto;
 }
 
-.task-details{
-    display: none;
-}
-
 .labelStatus.active{
     border: 2px solid rgb(42, 42, 252);
 }
@@ -33,8 +29,8 @@
 
 
 @media (min-width: 1024px){
-    .task-details.active{
-        width: 700px;
+    .task-details{
+        width: 600px;
         left: unset;
         bottom: 2.5vh;
         right: 2.5vw;

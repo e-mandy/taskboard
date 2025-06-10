@@ -21,7 +21,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('taskcreate', ['tasks' => Task::all()]);
     }
 
     /**
@@ -47,8 +47,10 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        $task = Task::where('id', $task->id)->get();
-        return $task;
+        return view('taskcreate', [
+            'tasks' => Task::all(),
+            'taskSelect' => $task
+        ]);
     }
 
     /**
@@ -56,7 +58,9 @@ class TaskController extends Controller
      */
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        //
+        $request = $request->validated();
+        $task->update($request);
+        return to_route('task.index');
     }
 
     /**
@@ -64,6 +68,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return to_route('task.index');
     }
 }
