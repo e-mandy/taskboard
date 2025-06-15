@@ -17,6 +17,8 @@
 
   </head>
   <body>
+    @include('partials.navbar')
+
     @yield('content')
 
     @include('links.scripts')
