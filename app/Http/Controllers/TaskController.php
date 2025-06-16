@@ -13,7 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('taskboard', ['tasks' => Task::all()]);
+        return view('task.taskboard', ['tasks' => Task::all()]);
     }
 
     /**
@@ -21,7 +21,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('taskcreate', ['tasks' => Task::all()]);
+        return view('task.taskcreate', ['tasks' => Task::all()]);
     }
 
     /**
@@ -47,7 +47,7 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        return view('taskcreate', [
+        return view('task.taskcreate', [
             'tasks' => Task::all(),
             'taskSelect' => $task
         ]);

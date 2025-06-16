@@ -8,7 +8,10 @@
             <p class="text-lg py-2">Bon retour <span class="font-bold text-orange-600 uppercase">John Doe</span></p>
         </div>
         <div class="pb-6">
-            <h2 class="text-lg">Liste de tableaux</h2>
+            <div class="px-1 flex justify-between">
+                <h2 class="text-lg">Liste de tableaux</h2>
+                <a href="#">Ajouter un tableau</a>
+            </div>
             <hr>
         </div>
         <div class="w-full grid grid-cols-2 wrap gap-2 px-3">

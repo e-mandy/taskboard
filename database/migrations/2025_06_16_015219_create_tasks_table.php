@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->enum('status', ['Progress', 'Completed', "Imcompleted", 'Todo']);
+            $table->string('name', 255);
+            $table->string('description', 255);
+            $table->string('status');
+
+            $table->unsignedBigInteger('board_id');
+            $table->foreign('board_id')->references('id')->on('boards');
             $table->timestamps();
         });
     }
