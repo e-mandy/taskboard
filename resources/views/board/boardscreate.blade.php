@@ -12,8 +12,8 @@
         <div class="w-full">
             <div class=" flex flex-col w-fit mx-auto mb-3">
                 <label for="name">Nom de tableau<span class="text-red-500">*</span></label>
-                <input type="text" name="name" placeholder="Eg: Projet de construction" id="name" value="{{ $board->name }}" class="px-2 py-1 border border-gray-300 rounded w-[400px] lg:w-[500px]">
-            </div>
+                <input type="text" name="name" placeholder="Eg: Projet de construction" id="name" value="{{ isset($board) ? old('name', $board->name) : old('name') }}" class="px-2 py-1 border border-gray-300 rounded w-[400px] lg:w-[500px]">
+            </div> 
 
             <button type="submit" class="bg-black text-white p-2 rounded block mx-auto w-[400px] lg:w-[500px]">Créer un tableau</button>
 

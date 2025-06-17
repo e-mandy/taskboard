@@ -20,9 +20,9 @@ Route::get('/boards/create', [BoardController::class, 'create'])->name('board.cr
 
 Route::post('/boards/store', [BoardController::class, 'store'])->name('board.store');
 
-Route::get('/boards/edit', [BoardController::class, 'edit'])->name('board.edit');
+Route::get('/boards/edit/{board}', [BoardController::class, 'edit'])->name('board.edit');
 
-Route::put('boards/update', [BoardController::class, 'update'])->name('board.update');
+Route::put('boards/update/{board}', [BoardController::class, 'update'])->name('board.update');
 
 //Routes destinées à l'authentification
 

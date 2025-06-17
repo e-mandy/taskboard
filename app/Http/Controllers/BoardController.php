@@ -19,7 +19,7 @@ class BoardController extends Controller
     }
 
     public function create(){
-        return view('board.create');
+        return view('board.boardscreate');
     }
 
     public function store(Request $request){
@@ -37,17 +37,15 @@ class BoardController extends Controller
     }
 
     public function edit(Board $board){
-        return view('board.create', ['board' => $board]);
+        return view('board.boardscreate', ['board' => $board]);
     }
 
     public function update(Board $board, Request $request){
-        $request->validate([
+        $validate = $request->validate([
             'name' => ['required', 'max:255']
         ]);
 
-        $board->update([
-            'name' => $request->name
-        ]);
+        $board->update($validate);
 
         return to_route('board.index');
     }
