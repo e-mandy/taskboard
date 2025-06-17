@@ -43,7 +43,7 @@ class UserController extends Controller
         
     }
 
-    public function disconnect(){
+    public function logout(){
         Auth::logout();
 
         return redirect()->route('login');

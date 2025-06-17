@@ -10,7 +10,7 @@
         <div class="pb-6">
             <div class="px-1 flex justify-between">
                 <h2 class="text-lg">Liste de tableaux</h2>
-                <a href="#">Ajouter un tableau</a>
+                <a href="">Ajouter un tableau</a>
             </div>
             <hr>
         </div>

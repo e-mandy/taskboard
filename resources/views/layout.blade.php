@@ -16,7 +16,7 @@
     <title>@yield('title')</title>
 
   </head>
-  <body>
+  <body class="max-w-screen">
     @include('partials.navbar')
 
     @yield('content')

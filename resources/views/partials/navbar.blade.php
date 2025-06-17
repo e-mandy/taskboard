@@ -2,6 +2,9 @@
     <h1 class="uppercase font-bold">To-do</h1>
 
     <div>
-        <a href="#" class="bg-black rounded-md text-white py-1 px-2">Deconnexion</a>
+        <form action="{{ route('logout') }}" method="POST">
+            <button type="submit" class="bg-gray-600 rounded-md text-white py-1 px-2">Deconnexion</button>
+        </form>
+        
     </div>
 </nav>
