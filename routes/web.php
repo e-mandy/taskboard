@@ -18,6 +18,12 @@ Route::get('/boards', [BoardController::class, 'index'])->name('board.index');
 
 Route::get('/boards/create', [BoardController::class, 'create'])->name('board.create');
 
+Route::post('/boards/store', [BoardController::class, 'store'])->name('board.store');
+
+Route::get('/boards/edit', [BoardController::class, 'edit'])->name('board.edit');
+
+Route::put('boards/update', [BoardController::class, 'update'])->name('board.update');
+
 //Routes destinées à l'authentification
 
 Route::get('/register', function(){
