@@ -24,6 +24,8 @@ Route::get('/boards/edit/{board}', [BoardController::class, 'edit'])->name('boar
 
 Route::put('boards/update/{board}', [BoardController::class, 'update'])->name('board.update');
 
+Route::delete('boards/delete/{board}', [BoardController::class, 'destroy'])->name('board.destroy');
+
 //Routes destinées à l'authentification
 
 Route::get('/register', function(){
