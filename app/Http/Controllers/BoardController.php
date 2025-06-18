@@ -50,5 +50,11 @@ class BoardController extends Controller
         return to_route('board.index');
     }
 
+    public function delete(Board $board){
+        $board->delete();
+
+        return to_route('board.index');
+    }
+
     
 }
