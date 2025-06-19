@@ -8,30 +8,24 @@ use App\Http\Requests\UpdateTaskRequest;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('task.taskboard', ['tasks' => Task::all()]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('task.taskcreate', ['tasks' => Task::all()]);
+    public function add($id){
+        $tasks = Task::where('board_id', $id)->get();
+        return view('task.taskcreate', [
+            'tasks' => $tasks,
+            'board_id' => $id
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTaskRequest $request)
+    public function store(StoreTaskRequest $request, $id)
     {
         $request = $request->validated();
-        Task::create($request);
-        return to_route('task.index');
+        Task::create($request, [
+            'board_id' => $id
+        ]);
+        return to_route('board.show', $id);
     }
 
     /**
@@ -48,8 +42,8 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         return view('task.taskcreate', [
-            'tasks' => Task::all(),
-            'taskSelect' => $task
+            'task' => $task,
+            'board_id' => $task->board_id
         ]);
     }
 
@@ -60,7 +54,7 @@ class TaskController extends Controller
     {
         $request = $request->validated();
         $task->update($request);
-        return to_route('task.index');
+        return to_route('board.show');
     }
 
     /**
@@ -69,6 +63,6 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return to_route('task.index');
+        return to_route('board.show');
     }
 }

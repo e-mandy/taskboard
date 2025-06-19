@@ -14,11 +14,11 @@
             </div>
             <hr>
         </div>
-        <div class="w-full grid grid-cols-2 wrap gap-2 px-3 lg:grid-cols-4">
+        <div class="w-full grid grid-cols-2 wrap gap-5 px-3 lg:grid-cols-4">
             @foreach($boards as $board)
 
                 <div>
-                    <a class="p-2 h-[100px] bg-gradient-to-r from-cyan-500 to-blue-500 flex mb-1    ">
+                    <a href="{{ route('board.show', $board->id) }}" class="p-2 h-[100px] bg-gradient-to-r from-cyan-500 to-blue-500 flex mb-1    ">
                         <p class="text-white font-bold h-fit"> {{ $board->name }} </p>
                     </a>
                     <div class="flex justify-between">
@@ -29,16 +29,14 @@
                         <form action="{{ route('board.destroy', $board) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="flex gap-2 items-center bg-red-600 p-1 rounded">
-                                <p class="text-lg text-white">Supprimer</p>
+                            <button type="submit" class="flex gap-2 items-center p-1 rounded">
+                                <p class="text-lg">Supprimer</p>
                                 <img src="{{ asset('assets/images/Trash.svg') }}" class="w-5 h-5">
                             </button>
                         </form>
                     </div>
                     
                 </div>
-                
-
             @endforeach
         </div>
         

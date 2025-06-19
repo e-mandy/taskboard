@@ -22,7 +22,7 @@
                                 <img class="bg-white w-11 h-11 p-2 rounded-lg" src="{{ asset('assets/images/horloge.png') }}">
                                 <div class="flex flex-col gap-1">
                                     <h4 class="font-bold">{{ $task->name }}</h4>
-                                    <p class="">{{ $task->description }}</p>
+                                    <p>{{ $task->description }}</p>
                                 </div>
                             </div>
                             <img class="w-9 h-9 p-2 rounded-lg bg-[#EAA23A]" src="{{ asset('assets/images/Time_atack_duotone.svg') }}">
@@ -72,7 +72,7 @@
         @endif
         
     
-        <a href="{{ route('task.create') }}" class="addTasks bg-[#F5E8D5] w-full flex items-center p-3 rounded-lg gap-5 hover:border hover:border-[#EAA23A] cursor-pointer">
+        <a href="{{ route('task.add', $id) }}" class="addTasks bg-[#F5E8D5] w-full flex items-center p-3 rounded-lg gap-5 hover:border hover:border-[#EAA23A] cursor-pointer">
             <img class="w-10 h-10 p-2 rounded-lg bg-[#EAA23A]" src="{{ asset('assets/images/Add_round_duotone.svg') }}">
             <h4 class="font-bold">Add new task</h4>
         </a>

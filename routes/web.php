@@ -5,20 +5,19 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [BoardController::class, 'index'])->name('board.index');
 
-Route::get('/tasks', [TaskController::class, 'index']);
+Route::resource('task', TaskController::class)->except('index', 'create');
 
-
-Route::resource('task', TaskController::class);
+Route::get('/task/add/{id}', [TaskController::class, 'add'])->name('task.add');
 
 //Routes destinées à la gestion du board
-
 Route::get('/boards', [BoardController::class, 'index'])->name('board.index');
 
 Route::get('/boards/create', [BoardController::class, 'create'])->name('board.create');
 
 Route::post('/boards/store', [BoardController::class, 'store'])->name('board.store');
+
+Route::get('/boards/show/{id}', [BoardController::class, 'show'])->name('board.show');
 
 Route::get('/boards/edit/{board}', [BoardController::class, 'edit'])->name('board.edit');
 

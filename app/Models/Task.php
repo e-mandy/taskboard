@@ -9,6 +9,12 @@ class Task extends Model
     protected $fillable = [
         'name',
         'description',
-        'status'
+        'status',
+
+        'board_id'
     ];
+
+    public function board(){
+        return $this->hasOne(Board::class);
+    }
 }

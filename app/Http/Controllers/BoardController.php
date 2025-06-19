@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,6 @@ class BoardController extends Controller
         }else{
             return redirect()->route('login');
         }
-        
     }
 
     public function create(){
@@ -34,6 +34,15 @@ class BoardController extends Controller
         ]);
 
         return to_route('board.index');
+    }
+
+    //Fonction d'affichage des tasks d'une board
+    public function show($id){
+        $tasks = Task::where('board_id', $id)->get();
+        return view('task.taskboard', [
+            'tasks' => $tasks,
+            'id' => $id
+        ]);
     }
 
     public function edit(Board $board){
